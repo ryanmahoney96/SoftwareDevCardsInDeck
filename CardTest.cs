@@ -13,7 +13,7 @@ namespace TestCardsAndDeck
             //value and suit as string
             //2-10 J Q K A
 
-            CardAndDeck.Card c = new CardAndDeck.Card("A", "Spades");
+            CardAndDeck.Card c = new CardAndDeck.Card("A", "spades");
             Assert.AreEqual("A of Spades", c.print());
 
             c = new CardAndDeck.Card("9", "Clubs");

@@ -8,6 +8,5 @@ namespace CardAndDeck
 {
     class main
     {
-        Card c = new Card("A", "Spades");
     }
 }

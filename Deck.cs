@@ -83,10 +83,20 @@ namespace CardAndDeck
             return ShuffledDeck.Count;
         }
         
-        public bool CheckCard()
+        public bool CheckCard(Card card)
         {
+            bool retVal = false;
 
-            return true;
+            foreach (Card c in ShuffledDeck)
+            {
+                if (c.print().Equals(card.print()))
+                {
+                    retVal = true;
+                    break;
+                }
+            }
+            
+            return retVal;
         }
     }
 }

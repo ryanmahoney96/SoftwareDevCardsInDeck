@@ -27,22 +27,30 @@ namespace TestCardsAndDeck
             }
             Assert.AreNotEqual(i, 52);
 
-            List<CardAndDeck.Card> hand = d.Deal(5);
+            List<Card> hand = d.Deal(5);
 
             Assert.AreEqual(47, d.GetSize());
             Assert.AreEqual(hand.Count, 5);
 
             i = 0;
-            
-            //TODO: test to make sure we can't deal OVER the deck quantity
-            //TODO: 
-            
-            //for(; i < hand.Count; i++)
-            //{
-            //    Assert.AreNotEqual(true, d.CheckCard(hand[i]));
-            //}
 
-            
+            for (; i < hand.Count; i++)
+            {
+                Assert.AreNotEqual(true, d.CheckCard(hand[i]));
+            }
+
+            try
+            {
+                d.Deal(48);
+                Assert.Fail();
+            }
+            catch (Exception)
+            {
+                //Could not deal that many cards, as we expect
+                Assert.AreEqual(47, d.GetSize());
+            }
+
+
 
         }
     }

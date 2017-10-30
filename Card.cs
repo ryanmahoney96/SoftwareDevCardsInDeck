@@ -15,14 +15,13 @@ namespace CardAndDeck
 
         public Card(string value, string suit)
         {
-            Suit = suit;
+            Suit = suit.ToLower();
             Value = value;
         }
 
         private bool checkSuit(string s)
         {
-            //TODO lowercase
-            if (s.Equals("Spades") || s.Equals("Clubs") || s.Equals("Hearts") || s.Equals("Diamonds"))
+            if (s.Equals("spades") || s.Equals("clubs") || s.Equals("hearts") || s.Equals("diamonds"))
             {
                 return true;
             }
@@ -56,7 +55,11 @@ namespace CardAndDeck
         {
             if (checkValue(Value) && checkSuit(Suit))
             {
-                return Value + " of " + Suit;
+                string s = Suit;
+                s = s.Remove(1, s.Length - 1);
+                s = s.ToUpper();
+                s = String.Concat(s, Suit.Remove(0, 1));
+                return Value + " of " + s;
             }
             else
             {
